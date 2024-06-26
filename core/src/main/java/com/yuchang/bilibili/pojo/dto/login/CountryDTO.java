@@ -1,6 +1,8 @@
 package com.yuchang.bilibili.pojo.dto.login;
 
+import com.yuchang.bilibili.pojo.dto.Response;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -9,13 +11,9 @@ import java.util.List;
  * @description 国际冠字码实体类
  * @date 2024/6/22 23:37:14
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class CountryDTO {
-
-    /**
-     * 0：成功
-     */
-    private Integer code;
+public class CountryDTO extends Response {
 
     /**
      * 数据本体
@@ -23,7 +21,7 @@ public class CountryDTO {
     private CountryDataDTO data;
 
     @Data
-    private static class CountryDataDTO {
+    public static class CountryDataDTO {
 
         /**
          * 常用国家&地区

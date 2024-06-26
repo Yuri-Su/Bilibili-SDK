@@ -1,24 +1,17 @@
 package com.yuchang.bilibili.pojo.dto.login;
 
+import com.yuchang.bilibili.pojo.dto.Response;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author yurisu
  * @description 短信验证码登录返回结果
  * @date 2024/6/25 22:42:08
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class SmsLoginDTO {
-
-    /**
-     * 返回值
-     */
-    private Integer code;
-
-    /**
-     * 错误信息 成功为0
-     */
-    private String message;
+public class SmsLoginDTO extends Response {
 
     /**
      * data对象
@@ -26,7 +19,7 @@ public class SmsLoginDTO {
     private SmsLoginDataDTO data;
 
     @Data
-    private static class SmsLoginDataDTO {
+    public static class SmsLoginDataDTO {
 
         /**
          * 是否为新注册用户

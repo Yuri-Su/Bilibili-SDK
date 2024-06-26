@@ -1,25 +1,24 @@
 package com.yuchang.bilibili.pojo.dto.captcha;
 
+import com.yuchang.bilibili.pojo.dto.Response;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author yurisu
  * @description 人机验证响应
  * @date 2024/6/20 22:39:52
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class CaptchaDTO {
-
-    private Integer code;
-
-    private String message;
+public class CaptchaDTO extends Response {
 
     private Integer ttl;
 
     private CaptchaDataDTO data;
 
     @Data
-    private static class CaptchaDataDTO {
+    public static class CaptchaDataDTO {
 
         /**
          * 极验captcha数据

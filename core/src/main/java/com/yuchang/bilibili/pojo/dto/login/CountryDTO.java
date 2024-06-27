@@ -1,6 +1,7 @@
 package com.yuchang.bilibili.pojo.dto.login;
 
 import com.yuchang.bilibili.pojo.dto.Response;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,44 +14,35 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Schema(title = "国际冠字码")
 public class CountryDTO extends Response {
 
-    /**
-     * 数据本体
-     */
+    @Schema(title = "数据本体")
     private CountryDataDTO data;
 
     @Data
+    @Schema(title = "国际冠字码信息")
     public static class CountryDataDTO {
 
-        /**
-         * 常用国家&地区
-         */
+        @Schema(title = "常用国家&地区")
         private List<CountryCommonDTO> common;
 
-        /**
-         * 其他国家&地区
-         */
+        @Schema(title = "其他国家&地区")
         private List<CountryCommonDTO> others;
 
     }
 
     @Data
+    @Schema(title = "国家&地区信息")
     private static class CountryCommonDTO {
 
-        /**
-         * 国际代码值
-         */
+        @Schema(title = "国际代码值")
         private Integer id;
 
-        /**
-         * 国家&地区名
-         */
+        @Schema(title = "国家&地区名")
         private String cname;
 
-        /**
-         * 国家&地区区号
-         */
+        @Schema(title = "国家&地区区号")
         private String country_id;
 
     }

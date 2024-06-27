@@ -21,35 +21,35 @@ import org.springframework.web.bind.annotation.*;
  * @date 2024/6/20 22:24:00
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user/login")
 @RequiredArgsConstructor
-@Tag(name = "用户", description = "用户登录")
-public class UserController {
+@Tag(name = "用户登录", description = "用户登录：包括 登录操作、人机认证、短信登录、密码登录等")
+public class UserLoginController {
 
     private final UserService userService;
 
-    @Operation(tags = "用户", summary = "获取人机登录信息")
+    @Operation(tags = "用户登录", summary = "获取人机登录信息")
     @GetMapping(value = "/captcha")
     public SingleResponse<CaptchaDTO.CaptchaDataDTO> captcha() {
         CaptchaDTO captcha = userService.findCaptcha();
         return SingleResponse.of(captcha.getCode(), captcha.getMessage(), captcha.getData());
     }
 
-    @Operation(tags = "用户", summary = "获取国际冠字码")
+    @Operation(tags = "用户登录", summary = "获取国际冠字码")
     @GetMapping(value = "/country")
     public SingleResponse<CountryDTO.CountryDataDTO> country() {
         CountryDTO country = userService.findCountry();
         return SingleResponse.of(country.getCode(), country.getData());
     }
 
-    @Operation(tags = "用户", summary = "发送短信验证码 Web")
+    @Operation(tags = "用户登录", summary = "发送短信验证码 Web")
     @PostMapping(value = "/sms/send")
     public SingleResponse<CaptchaKeyDTO> sendSMS(@RequestBody @Validated SmsQuery smsQuery) {
         SmsDTO smsDTO = userService.sendSms(smsQuery);
         return SingleResponse.of(smsDTO.getCode(), smsDTO.getMessage(), smsDTO.getData());
     }
 
-    @Operation(tags = "用户", summary = "使用短信验证码登录 Web")
+    @Operation(tags = "用户登录", summary = "使用短信验证码登录 Web")
     @PostMapping(value = "/sms/login")
     public SingleResponse<SmsLoginDTO.SmsLoginDataDTO> login(@RequestBody @Validated SmsLoginQuery smsLoginQuery) {
         SmsLoginDTO smsLoginDTO = userService.smsLogin(smsLoginQuery);

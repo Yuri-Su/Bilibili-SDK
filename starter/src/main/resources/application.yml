@@ -4,3 +4,9 @@ com:
       sign:
         app-key: 1d8b6e7d45233436
         app-sec: 560c52ccd288fed045859ed18bffd973
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
